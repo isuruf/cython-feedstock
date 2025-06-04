@@ -15,7 +15,6 @@ source:
 build:
   number: {{ build_num }}
   skip: true  # [use_noarch and not linux64]
-  skip: true  # [use_noarch and is_freethreading]
   skip: true  # [use_noarch and not is_python_min]
   noarch: python  # [use_noarch]
   script:
@@ -51,7 +50,6 @@ test:
     # See also https://github.com/conda-forge/conda-forge.github.io/pull/2387
     # - python {{ python_min }}    # [use_noarch]
     - setuptools                 # [py>=312 or use_noarch]
-    - setuptools <80             # [is_freethreading]
   commands:
     - cython --version
   files:
